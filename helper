@@ -1,0 +1,37 @@
+#!/usr/bin/python3
+import json
+import datetime
+
+class caldhelp:
+    def __init__(self):
+        self.calfile = "/home/blocked/.config/cald/cal.json"
+        self.LOCALTIME = datetime.datetime.now().astimezone().tzinfo
+    
+    def main(self):
+        title: str = str(input("What is the title of the reminder?: "))
+        date: str = str(input("When is the reminder? (DD-MM-YYYY-HH-mm-SS): "))
+        self.updatefile(self.datetounixts(date), title)
+
+    def datetounixts(self, date: str):
+        datelist = date.split("-")
+        datetimedate = datetime.datetime(int(datelist[2]), int(datelist[1], int(datelist[0], int(datelist[3], int(datelist[4], int(datelist[5]))))))
+        timestamp = datetimedate.replace(tzinfo=self.LOCALTIME).timestamp()
+        return int(timestamp)
+
+    def updatefile(self, ts: int, tt: str):
+        with open(self.calfile, "r") as f:
+            jsdata = f.read()
+            data = json.loads(jsdata)
+        with open(self.calfile, "w") as f:
+            data.append({"title": tt, "time": ts})
+            f.write(json.dumps(data))
+
+def main():
+    cdhlper = caldhelp()
+    cont = True
+    while cont:
+        cdhlper.main()
+        cont = str(input("Do you want to add another event? (yes/no): ")) == "yes"
+
+if __name__ == "__main__":
+    main()
