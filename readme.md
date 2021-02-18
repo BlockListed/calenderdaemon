@@ -6,9 +6,11 @@ A simple Calender program that uses Unix timestamps for the events.
 ## Install
 * Install nim
 * Modify caldaemon.nim and change the paths to be your user
-* Compile
-* Move to a suitable location (for example ~/.local/usr/bin)
+* Run ./make.sh install
 * Set your WM/DE to autostart the program
+
+## Uninstall
+* Run ./make.sh uninstall
 
 ## Configuration
 Make a cal.json file in ~/.config/cald/.
