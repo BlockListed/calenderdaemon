@@ -14,8 +14,8 @@ while true:
             cmd.add("'")
             echo execProcess(cmd)
             delete(notifs, 0)
-            break
             echo $i
+            break
     jsobj = %* notifs
     writeFile("/home/blocked/.config/cald/cal.json", $jsobj)
 
