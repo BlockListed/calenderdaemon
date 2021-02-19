@@ -14,7 +14,7 @@ class caldhelp:
 
     def datetounixts(self, date: str):
         datelist = date.split("-")
-        datetimedate = datetime.datetime(int(datelist[2]), int(datelist[1], int(datelist[0], int(datelist[3], int(datelist[4], int(datelist[5]))))))
+        datetimedate = datetime.datetime(int(datelist[2]), int(datelist[1]), int(datelist[0]), int(datelist[3]), int(datelist[4]), int(datelist[5]))
         timestamp = datetimedate.replace(tzinfo=self.LOCALTIME).timestamp()
         return int(timestamp)
 
