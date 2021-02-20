@@ -3,6 +3,13 @@ then
     nim c caldaemon.nim
     cp caldaemon ~/.local/bin/
     cp helper ~/.local/bin/
+    mkdir -p ~/.config/cald
+    if [ -f ~/.config/cald/cal.json ]
+    then
+      echo "Config file already exists!"
+    else
+      echo "[]" >> ~/.config/cald/cal.json
+    fi
 
 elif [ $1 = uninstall ]
 then
