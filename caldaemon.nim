@@ -13,7 +13,7 @@ while true:
             cmd.add($i["title"])
             cmd.add("'")
             echo execProcess(cmd)
-            delete(notifs, 0)
+            delete(notifs, find(notifs, i))
             echo $i
             break
     jsobj = %* notifs
