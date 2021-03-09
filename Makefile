@@ -3,7 +3,7 @@ CC=nim
 all: cald
 
 cald: caldaemon.nim
-	$(CC) -o:build/cald caldaemon.nim
+	$(CC) c -o:build/cald caldaemon.nim
 
 install:
 	cp build/cald ~/.local/bin/
