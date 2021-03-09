@@ -5,9 +5,9 @@ all: cald
 cald: caldaemon.nim
 	$(CC) c -o:build/cald caldaemon.nim
 
-install:
-	cp build/cald ~/.local/bin/
-	cp helper ~/.local/bin/
+install: helper build/cald
+	cp build/cald /usr/bin/
+	cp caldhelper /usr/bin/
 	mkdir -p ~/.config/cald
 	if [ ! -f ~/.config/cald/cal.json ]; \
 	then \
@@ -15,4 +15,4 @@ install:
 	fi
 
 uninstall:
-	rm -rf ~/.local/bin/cald ~/.local/bin/helper
+	rm -rf /usr/bin/cald /usr/bin/helper
