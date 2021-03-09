@@ -13,4 +13,4 @@ cp caldhelper pkg/cald-$1/bin/
 
 tar -cvzf pkg/cald-$1.tar.gz pkg/cald-$1
 
-#rm -rf pkg/cald-$1
+rm -rf pkg/cald-$1
