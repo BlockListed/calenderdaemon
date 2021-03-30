@@ -10,7 +10,7 @@ let home: string = getHomeDir()
 # Main Loop
 while true:
     # Getting time
-    var time = toUnix(getTime())
+    var time: int64  = toUnix(getTime())
     # Getting the new notifs
     var jsobj = parseFile(home & ".config/cald/cal.json")
     var notifs = seq(getElems(jsobj))
@@ -19,7 +19,7 @@ while true:
         # Send the notifs, if the notification is due at the current time
         if $i["time"] == $time or $i["time"] < $time:
             # Sending notification
-            var cmd: string = "notify-send '[Calender] "
+            var cmd: string = "notify-send '[Calender]' '"
             cmd.add($i["title"])
             cmd.add("'")
             echo execProcess(cmd)
