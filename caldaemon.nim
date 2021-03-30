@@ -19,9 +19,9 @@ while true:
         # Send the notifs, if the notification is due at the current time
         if $i["time"] == $time or $i["time"] < $time:
             # Sending notification
-            var cmd: string = "notify-send '[Calender]' '"
+            var cmd: string = "notify-send '[Calender]' "
             cmd.add($i["title"])
-            cmd.add("'")
+            #  cmd.add("'")
             echo execProcess(cmd)
             # Remove the notification from the list and print the list of notifcations
             delete(notifs, find(notifs, i))

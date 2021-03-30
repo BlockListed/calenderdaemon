@@ -6,7 +6,6 @@ cald: caldaemon.nim
 	$(CC) c -o:build/cald caldaemon.nim
 
 install: caldhelper build/cald
-	killall cald
 	cp build/cald /usr/bin/
 	cp caldhelper /usr/bin/
 	mkdir -p ~/.config/cald
