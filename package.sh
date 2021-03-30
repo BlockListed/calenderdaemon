@@ -1,18 +1,20 @@
 make
 mkdir -p pkg/cald-$1
 
-echo "sudo cp bin/cald /usr/bin/ \nsudo cp bin/caldhelper /usr/bin/ \nmkdir -p ~/.config/cald \nif [ ! -f ~/.config/cald/cal.json ] \nthen \n\techo "[]" > ~/.config/cald/cal.json \nfi" > pkg/cald-$1/install.sh
-chmod +x pkg/cald-$1/install.sh
-echo "sudo rm -rf /usr/bin/cald /usr/bin/helper \necho 'Remove ~/.config/cald to delete the configuration.'" > pkg/cald-$1/uninstall.sh
-chmod +x pkg/cald-$1/uninstall.sh
+cd pkg
 
-mkdir pkg/cald-$1/bin
+echo "sudo cp bin/cald /usr/bin/ \nsudo cp bin/caldhelper /usr/bin/ \nmkdir -p ~/.config/cald \nif [ ! -f ~/.config/cald/cal.json ] \nthen \n\techo "[]" > ~/.config/cald/cal.json \nfi" > cald-$1/install.sh
+chmod +x cald-$1/install.sh
+echo "sudo rm -rf /usr/bin/cald /usr/bin/helper \necho 'Remove ~/.config/cald to delete the configuration.'" > cald-$1/uninstall.sh
+chmod +x cald-$1/uninstall.sh
 
-cp build/cald pkg/cald-$1/bin/
-cp caldhelper pkg/cald-$1/bin/
+mkdir cald-$1/bin
 
-tar -cvzf pkg/cald-$1.tar.gz pkg/cald-$1
+cp ../build/cald cald-$1/bin/
+cp ../caldhelper cald-$1/bin/
 
-rm -rf pkg/cald-$1
+tar -cvzf cald-$1.tar.gz cald-$1
 
-make clean
+rm -rf cald-$1
+
+make -C .. clean
