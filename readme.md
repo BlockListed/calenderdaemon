@@ -10,7 +10,7 @@ A simple Calender program that uses Unix timestamps for the events.
 3. Go into the new directory and run `./install.sh`.
 
 ## Uninstall
-1. If you don't still have the folder from installation, perform steps 1 and 2 from the install section.
+1. If you don't have the folder from installation anymore, then perform steps 1 and 2 from the install section.
 2. Go into the directory and run `./uninstall.sh`.
 
 ## From source
