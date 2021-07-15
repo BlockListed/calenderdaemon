@@ -29,6 +29,6 @@ while true:
             break
     # Updating the notification file
     jsobj = %* notifs
-    writeFile("/home/blocked/.config/cald/cal.json", $jsobj)
+    writeFile(home & ".config/cald/cal.json", $jsobj)
 
     sleep(1000)
